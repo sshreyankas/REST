@@ -23,6 +23,8 @@ import com.shrey.cummins.model.Message;
 public class MessageResource {
 
 	Database g = new Database();
+	
+	
 	@GET
 	public List<Message> message() throws SQLException
 	{

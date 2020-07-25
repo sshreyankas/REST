@@ -20,10 +20,13 @@ public class Database {
 	public Database()
 	{
 		try {
-			String url = "jdbc:oracle:thin:system/Cummins12348765@localhost:1521:orcl";
-
-			Class.forName("oracle.jdbc.OracleDriver");
-			conn = DriverManager.getConnection(url);
+//			String url = "jdbc:oracle:thin:system/Cummins12348765@localhost:1521:orcl";
+//
+//			Class.forName("oracle.jdbc.OracleDriver");
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/result","root","shrey_25");
+			
+//			conn = DriverManager.getConnection(url);
 			System.out.println("Connection established "+conn);
 			stmt = conn.createStatement();
 		}
@@ -33,6 +36,8 @@ public class Database {
 		}
 
 	}
+	
+	
 	
 	public Message addProfile(Message m)
 	{

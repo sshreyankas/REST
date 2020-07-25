@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.shrey.cummins.model.Message;
-
 public class login_database {
 
 	Connection conn=null;
@@ -15,10 +13,10 @@ public class login_database {
 	public login_database()
 	{
 		try {
-			String url = "jdbc:oracle:thin:system/Cummins12348765@localhost:1521:orcl";
+//			String url = "jdbc:oracle:thin:system/Cummins12348765@localhost:1521:orcl";
 
-			Class.forName("oracle.jdbc.OracleDriver");
-			conn = DriverManager.getConnection(url);
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/result","root","shrey_25");
 			System.out.println("Connection established "+conn);
 		}catch(Exception e)
 		{
@@ -26,15 +24,4 @@ public class login_database {
 		}
 	}
 	
-	public int get(int cno, String pass) throws SQLException
-	{
-		String query = "select * from B201718";
-		ResultSet rs = stmt.executeQuery(query);
-		Message m;
-		   while(rs.next())
-		   {
-			   return 1;
-		   }
-		return 0;
 	}
-}
